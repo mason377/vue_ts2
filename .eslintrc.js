@@ -1,9 +1,11 @@
 module.exports = {
   root: true,
   env: {
+    //指定代码的运行环境
     node: true
   },
   extends: [
+    //定义文件继承的子规范
     "plugin:vue/essential",
     "eslint:recommended",
     "@vue/typescript/recommended",
@@ -11,6 +13,7 @@ module.exports = {
     "@vue/prettier/@typescript-eslint"
   ],
   parserOptions: {
+    //指定ESLint可以解析JSX语法
     ecmaVersion: 2020
   },
   rules: {
