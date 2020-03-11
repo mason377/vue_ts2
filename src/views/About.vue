@@ -1,6 +1,7 @@
 <template>
   <div class="about">
-    <span>vuex-class,store/modules/data 结合命名空间使用</span>
+    <div class="test">测试postcss</div>
+    <!-- <span>vuex-class,store/modules/data 结合命名空间使用</span> -->
   </div>
 </template>
 
@@ -39,4 +40,22 @@ export default class About extends Vue {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+}
+.about {
+  div.test {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background-color: blue;
+    color: #fff;
+  }
+  span {
+    color: red;
+    font-size: 16px;
+  }
+}
+</style>

@@ -52,8 +52,24 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## 目标
 
 ### VUEX
+```
+namespace命名空间
+```
+```
+vuex-class 结合使用
+```
 
-### postCss
+### postcss
+```
+vue-cli3 创建的时候并不会自动创建vue.config.js，因为这个是个可选项，所以一般都是需要修改webpack的时候才会自己创建一个vue.config.js
+
+再然后因为vue-cli3内部高度集成了webpack，一般来说使用者不需要再去知道weboack做了什么，所以没有暴露webpack的配置文件，但你依然可以创建vue.config.js 去修改默认的webpack
+
+postcss 的配置写在手动创建的 vue.config.js 文件里边
+
+自动转换比例位于 utils/rem.js
+```
+
 
 ### api, interface
 

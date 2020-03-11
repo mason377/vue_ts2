@@ -3,6 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+// rem 布局
+import "@/utils/rem";
+
 Vue.config.productionTip = false;
 
 new Vue({
