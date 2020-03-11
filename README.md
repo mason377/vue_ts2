@@ -1,6 +1,6 @@
 # vue_ts
 
-## Project setup111
+## Project setup
 ```
 yarn install
 ```
