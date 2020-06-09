@@ -75,7 +75,7 @@ postcss 的配置写在手动创建的 vue.config.js 文件里边
 
 ### tslint, formatter
 
-## 参考文档
+## 参考文档666
 ```
 https://github.com/pppercyWang/vue-typescript-mobile
 ```
