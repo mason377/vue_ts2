@@ -6,36 +6,44 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import { namespace } from "vuex-class";
+import { Component, Vue } from "vue-property-decorator"
+import { namespace } from "vuex-class"
+import * as APITYPE from "@/@types/api-type"
 
-const dataModule = namespace("modules");
+const dataModule = namespace("modules")
 
 @Component({
   components: {}
 })
 export default class About extends Vue {
-  @dataModule.State("platforms") platforms!: Array<any>;
+  @dataModule.State("platforms") platforms!: Array<string>
 
   @dataModule.Getter("getPlatforms")
-  get_platforms!: Array<any>;
+  get_platforms!: Array<string>
 
-  @dataModule.Mutation("SET_PLATFORMS") SET_PLATFORMS!: (payload: any) => void;
+  @dataModule.Mutation("SET_PLATFORMS") SET_PLATFORMS!: (
+    payload: string
+  ) => void
 
   @dataModule.Action("dispatchPlatforms")
-  dispatchPlatforms!: () => void;
+  dispatchPlatforms!: () => void
+
+  queryParams: APITYPE.Basic = {
+    name: "all",
+    age: 15
+  }
 
   public created() {
-    console.log("created");
+    console.log("created")
     // state 获取
-    console.log(this.platforms);
+    console.log(this.platforms)
     // getter 获取
-    console.log(this.get_platforms);
+    console.log(this.get_platforms)
   }
 
   public mounted() {
-    console.log("mounted");
-    this.SET_PLATFORMS([666, 888]);
+    console.log("mounted")
+    this.SET_PLATFORMS([666, 888])
   }
 }
 </script>
