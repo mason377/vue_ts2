@@ -22,7 +22,7 @@ export default class About extends Vue {
   get_platforms!: Array<string>
 
   @dataModule.Mutation("SET_PLATFORMS") SET_PLATFORMS!: (
-    payload: string
+    payload: Array<string>
   ) => void
 
   @dataModule.Action("dispatchPlatforms")
@@ -43,7 +43,7 @@ export default class About extends Vue {
 
   public mounted() {
     console.log("mounted")
-    this.SET_PLATFORMS([666, 888])
+    this.SET_PLATFORMS(["66", "888"])
   }
 }
 </script>

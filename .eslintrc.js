@@ -17,7 +17,7 @@ module.exports = {
     ecmaVersion: 2020
     // parser: "@typescript-eslint/parser",
     // rules: {
-    //   "no-any": false
+
     // }
   },
   rules: {
@@ -58,6 +58,8 @@ module.exports = {
     "handle-callback-err": 0, // 对错误会调允许滞空处理
     eqeqeq: 2, // 强制3等号
     "no-unused-vars": 0, // 定义了允许不使用
-    "no-empty": 0 // 对空代码块发出警告，不报错
+    "no-empty": 0, // 对空代码块发出警告，不报错
+    // 下边是对 typescript语法的配置
+    "@typescript-eslint/no-explicit-any": 0 // 允许使用any类型
   }
 }

@@ -21,8 +21,8 @@ const mutations = {
 
 const actions = {
   async dispatchPlatforms(context: ActionContext<any, any>) {
-    const res = await Vue.prototype.$api.getPlatforms()
-    context.commit("SET_PLATFORMS", res.data)
+    // const res = await Vue.prototype.$api.getPlatforms()
+    context.commit("SET_PLATFORMS", ["000", "666"])
   }
 }
 

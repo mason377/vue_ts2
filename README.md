@@ -116,15 +116,22 @@ queryParams: APITYPE.basic = {
 ### 二、格式化文件
 
 - .eslintrc.js 配置文件
-- 格式化文档时分号和逗号都是在setting.json中进行配置
+- 格式化文档时分号和逗号都是在 setting.json 中进行配置
+
 ```
 "vetur.format.defaultFormatterOptions": {
     "prettier": {
       "singleQuote": false,
       "semi": false
     }
-  },
+},
 
-  "prettier.trailingComma": "none", 
+"prettier.trailingComma": "none", // 在对象或数组最后一个元素后面是否加逗号，none表示格式化时不添加
 ```
-- ts中any类型会给出提示，暂时没有解决
+
+- ts 中 any 类型可以在快速修复中解决当前文件夹，或者当前行的内容，最终的解决方案是在 eslintrc.js 文件中单独配置(可以使用any类型)
+
+```
+// 下边是对 typescript 语法的配置
+"@typescript-eslint/no-explicit-any": 0 // 允许使用any类型
+```
