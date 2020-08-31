@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <div class="test">测试postcss</div>
+    <loading :isShow="isShow"></loading>
     <!-- <span>vuex-class,store/modules/data 结合命名空间使用</span> -->
   </div>
 </template>
@@ -33,17 +34,23 @@ export default class About extends Vue {
     age: 15
   }
 
+  isShow = true
+
   public created() {
     console.log("created")
     // state 获取
     console.log(this.platforms)
     // getter 获取
     console.log(this.get_platforms)
+    this.isShow = true
   }
 
   public mounted() {
     console.log("mounted")
     this.SET_PLATFORMS(["66", "888"])
+    setTimeout(() => {
+      this.isShow = false
+    }, 1500)
   }
 }
 </script>

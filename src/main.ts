@@ -3,6 +3,9 @@ import App from "./App.vue"
 import router from "./router"
 import store from "./store"
 
+// 全局插件（某一个组件或者功能经常需要被使用到）
+import "@/plugin/index"
+
 // rem 布局
 import "@/utils/rem"
 
