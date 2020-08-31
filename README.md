@@ -135,3 +135,11 @@ queryParams: APITYPE.basic = {
 // 下边是对 typescript 语法的配置
 "@typescript-eslint/no-explicit-any": 0 // 允许使用any类型
 ```
+
+### 三、plugin
+- 当某一个组件或者功能经常需要被使用到时, 我们就可以将这个组件或者功能定义成一个插件
+- 项目位置：/plugin/index.ts (项目中所有插件，均由此处被 main.js 引入)
+- 使用 (类似于一个组件的导入，但是插件注册之后就可以全局引入，直接使用)
+```
+<loading :isShow="isShow"></loading>
+```
