@@ -116,7 +116,7 @@ queryParams: APITYPE.basic = {
 ### 二、格式化文件
 
 - .eslintrc.js 配置文件
-- 格式化文档时分号和逗号都是在 setting.json 中进行配置
+- 格式化文档时分号和逗号都是在 setting.json(vscode的设置文件) 中进行配置
 
 ```
 "vetur.format.defaultFormatterOptions": {

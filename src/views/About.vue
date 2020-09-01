@@ -34,7 +34,7 @@ export default class About extends Vue {
     age: 15
   }
 
-  isShow = true
+  isShow: boolean = false
 
   public created() {
     console.log("created")

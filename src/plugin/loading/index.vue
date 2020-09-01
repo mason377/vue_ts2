@@ -11,19 +11,16 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: "Loading",
-  props: {
-    isShow: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data: function() {
-    return {
-      title: "数据加载中..."
-    }
-  }
+import { Component, Prop, Vue } from "vue-property-decorator"
+
+@Component({
+  components: {}
+})
+export default class Loading extends Vue {
+  @Prop()
+  readonly isShow?: boolean
+
+  title: string = "数据加载中..."
 }
 </script>
 

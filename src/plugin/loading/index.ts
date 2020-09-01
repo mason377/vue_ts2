@@ -1,7 +1,7 @@
 import Loading from "./index.vue"
 
 export default {
-  install: function(Vue: any, Options: any) {
+  install: function(Vue: any) {
     // 1.根据我们的组件生成一个构造函数
     // const LoadingContructor = Vue.extend(Loading)
     // // 2.根据构造函数创建实例对象
