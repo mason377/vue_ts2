@@ -5,8 +5,9 @@
         class="card"
         v-for="(item, index) in card_data"
         :key="index"
-        @click="$router.push(`/${item.path}`)"
+        @click="clickCard(item)"
       >
+        <!-- @click="$router.push(`/${item.path}`)" -->
         {{ item.name }}
       </div>
     </div>
@@ -20,7 +21,7 @@ import { Component, Vue } from "vue-property-decorator"
   components: {}
 })
 export default class Home extends Vue {
-  card_data: Array<any> = [{ name: "PostCSS", path: "PostCSS" }]
+  card_data: Array<any> = [{ name: "about", path: "about" }]
 
   clickCard(item: any) {
     console.log(123456)

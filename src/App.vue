@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <!-- 1. router-view : 按照路由的默认路径显示第一个组件，必须有，否则切换路由所有的组件只显示路径发生变化，但是页面不发生切换 -->
     <router-view />
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator"
+
+@Component({
+  components: {}
+})
+export default class Home extends Vue {}
+</script>
 
 <style lang="scss">
 #app {

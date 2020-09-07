@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="test">测试postcss</div>
-    <loading :isShow="isShow"></loading>
+    <!-- <loading :isShow="isShow"></loading> -->
     <!-- <span>vuex-class,store/modules/data 结合命名空间使用</span> -->
   </div>
 </template>
