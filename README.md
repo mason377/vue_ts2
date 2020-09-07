@@ -116,7 +116,7 @@ queryParams: APITYPE.basic = {
 ### 二、格式化文件
 
 - .eslintrc.js 配置文件
-- 格式化文档时分号和逗号都是在 setting.json(vscode的设置文件) 中进行配置
+- 格式化文档时分号和逗号都是在 setting.json(vscode 的设置文件) 中进行配置
 
 ```
 "vetur.format.defaultFormatterOptions": {
@@ -129,17 +129,35 @@ queryParams: APITYPE.basic = {
 "prettier.trailingComma": "none", // 在对象或数组最后一个元素后面是否加逗号，none表示格式化时不添加
 ```
 
-- ts 中 any 类型可以在快速修复中解决当前文件夹，或者当前行的内容，最终的解决方案是在 eslintrc.js 文件中单独配置(可以使用any类型)
+- ts 中 any 类型可以在快速修复中解决当前文件夹，或者当前行的内容，最终的解决方案是在 eslintrc.js 文件中单独配置(可以使用 any 类型)
 
 ```
 // 下边是对 typescript 语法的配置
 "@typescript-eslint/no-explicit-any": 0 // 允许使用any类型
 ```
 
+- eslint 的 rules 用来设置从插件来的规范代码的规则
+- 主要有如下的设置规则，可以设置字符串也可以设置数字，两者效果一致
+
+```
+  "off" -> 0 关闭规则
+  "warn" -> 1 开启警告规则
+  "error" -> 2 开启错误规则
+```
+- ESLint 与 Prettier 区别：
+1.ESLint：代码检测工具；可以检测出你代码中潜在的问题，比如使用了某个变量却忘记了定义；
+2.Prettier：代码格式化工具；作为代码格式化工具，能够统一你或者你的团队的代码风格。
+3.使用 ESLint 与 eslint-plugin-prettier 的结果是最终得到的代码是充分尊重 Prettier 的结果(特别注意这点)，而 prettier-eslint-cli 则是先执行 Prettier 然后再自动使用 eslint --fix 将与 ESLint 规则冲突的代码修正成 ESLint 想要的结果。这样其实引入 Prettier 不会影响你原有的设置。
+
+- 参考链接: https://zhuanlan.zhihu.com/p/80574300
+
+
 ### 三、plugin
+
 - 当某一个组件或者功能经常需要被使用到时, 我们就可以将这个组件或者功能定义成一个插件
 - 项目位置：/plugin/index.ts (项目中所有插件，均由此处被 main.js 引入)
 - 使用 (类似于一个组件的导入，但是插件注册之后就可以全局引入，直接使用)
+
 ```
 <loading :isShow="isShow"></loading>
 ```
