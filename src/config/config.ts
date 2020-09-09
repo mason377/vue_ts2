@@ -1,10 +1,10 @@
 const isProd = process.env.NODE_ENV === "production"
 export const Configs = {
   DEV: {
-    API_BASE: "https://dev-zhiqu-api.beieryouxi.com/v3d2"
+    API_BASE: ""
   },
   PRODUCTION: {
-    API_BASE: "https://zhiqu-api.beieryouxi.com/v3d2"
+    API_BASE: ""
   }
 }
 
