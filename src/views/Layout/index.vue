@@ -1,3 +1,4 @@
+// Layout: 当项目初始化，首页是主组件嵌套子组件的时候才需要用到
 <template>
   <div class="container">
     <div class="list">

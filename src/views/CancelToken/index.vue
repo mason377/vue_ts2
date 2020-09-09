@@ -5,7 +5,7 @@
         class="card"
         v-for="(item, index) in card_data"
         :key="index"
-        @click="$router.push(`/${item.path}`)"
+        @click="getGamesList(item)"
       >
         {{ item.name }}
       </div>
@@ -19,15 +19,12 @@ import { Component, Vue } from "vue-property-decorator"
 @Component({
   components: {}
 })
-export default class Home extends Vue {
-  card_data: Array<any> = [
-    { name: "PostCSS", path: "postcss" },
-    { name: "CancelToken", path: "cance-token" }
-  ]
-
-  clickCard(item: any) {
-    // console.log(item)
-    this.$router.push(`/${item.path}`)
+export default class CancelToken extends Vue {
+  card_data: Array<any> = [{ name: "快速点击测试" }]
+  $api: any // 需要 definition.d.ts 声明文件
+  async getGamesList() {
+    let res = await this.$api.games.getGamesList()
+    console.log(res.data)
   }
 }
 </script>

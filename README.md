@@ -165,3 +165,9 @@ queryParams: APITYPE.basic = {
 ### 四、Router
 - App.vue 中 <router-view /> 标签，是不能缺少的。代表的是默认路由，指向Home组件,
 - 在Home组件中可以手动跳转到其他组件
+
+
+
+### 五、待整理
+- 声明文件的编写，参考 sdk-admin 项目 definition.d.ts 文件
+- CancelToken 组件中 this.$api 没有声明文件导致编辑器提示不出来

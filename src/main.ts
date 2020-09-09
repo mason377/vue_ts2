@@ -9,6 +9,9 @@ import "@/plugin/index"
 // rem 布局
 import "@/utils/rem"
 
+import api from "@/api/api"
+Vue.prototype.$api = api
+
 Vue.config.productionTip = false
 
 new Vue({

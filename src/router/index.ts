@@ -10,13 +10,18 @@ const routes = [
     component: () => import("@/views/Home.vue")
   },
   {
-    path: "/postCSS",
+    path: "/postcss",
     name: "PostCSS",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "@/views/PostCSS/index.vue")
+  },
+  {
+    path: "/cance-token",
+    name: "CancelToken",
+    component: () => import("@/views/CancelToken/index.vue")
   }
 ]
 
