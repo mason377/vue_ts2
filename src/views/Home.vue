@@ -23,7 +23,6 @@ export default class Home extends Vue {
   card_data: Array<any> = [{ name: "PostCSS", path: "PostCSS" }]
 
   clickCard(item: any) {
-    console.log(123456)
     // console.log(item)
     this.$router.push(`/${item.path}`)
   }
