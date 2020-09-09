@@ -161,3 +161,7 @@ queryParams: APITYPE.basic = {
 ```
 <loading :isShow="isShow"></loading>
 ```
+
+### 四、Router
+- App.vue 中 <router-view /> 标签，是不能缺少的。代表的是默认路由，指向Home组件,
+- 在Home组件中可以手动跳转到其他组件
