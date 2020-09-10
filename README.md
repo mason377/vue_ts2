@@ -144,13 +144,12 @@ queryParams: APITYPE.basic = {
   "warn" -> 1 开启警告规则
   "error" -> 2 开启错误规则
 ```
+
 - ESLint 与 Prettier 区别：
-1.ESLint：代码检测工具；可以检测出你代码中潜在的问题，比如使用了某个变量却忘记了定义；
-2.Prettier：代码格式化工具；作为代码格式化工具，能够统一你或者你的团队的代码风格。
-3.使用 ESLint 与 eslint-plugin-prettier 的结果是最终得到的代码是充分尊重 Prettier 的结果(特别注意这点)，而 prettier-eslint-cli 则是先执行 Prettier 然后再自动使用 eslint --fix 将与 ESLint 规则冲突的代码修正成 ESLint 想要的结果。这样其实引入 Prettier 不会影响你原有的设置。
+  1.ESLint：代码检测工具；可以检测出你代码中潜在的问题，比如使用了某个变量却忘记了定义；
+  2.Prettier：代码格式化工具；作为代码格式化工具，能够统一你或者你的团队的代码风格。 3.使用 ESLint 与 eslint-plugin-prettier 的结果是最终得到的代码是充分尊重 Prettier 的结果(特别注意这点)，而 prettier-eslint-cli 则是先执行 Prettier 然后再自动使用 eslint --fix 将与 ESLint 规则冲突的代码修正成 ESLint 想要的结果。这样其实引入 Prettier 不会影响你原有的设置。
 
 - 参考链接: https://zhuanlan.zhihu.com/p/80574300
-
 
 ### 三、plugin
 
@@ -163,11 +162,75 @@ queryParams: APITYPE.basic = {
 ```
 
 ### 四、Router
-- App.vue 中 <router-view /> 标签，是不能缺少的。代表的是默认路由，指向Home组件,
-- 在Home组件中可以手动跳转到其他组件
 
+- App.vue 中 <router-view /> 标签，是不能缺少的。代表的是默认路由，指向 Home 组件,
+- 在 Home 组件中可以手动跳转到其他组件
 
+### 五、声明文件
 
-### 五、待整理
-- 声明文件的编写，参考 sdk-admin 项目 definition.d.ts 文件
-- CancelToken 组件中 this.$api 没有声明文件导致编辑器提示不出来
+- 原则上，TypeScript 需要开发者做到先声明后使用。这就导致开发者在调用很多原生接口（浏览器、Node.js）或者第三方模块的时候，因为某些全局变量或者对象的方法并没有声明过，导致编译器的类型检查失败。
+
+- 用 ts 写的模块在发布的时候仍然是用 js 发布，这就导致一个问题：ts 那么多类型数据都没了，所以需要一个 d.ts 文件来标记某个 js 库里面对象的类型
+  然后 typings 就是一个网络上的 d.ts 数据库
+
+- d.ts 类型定义文件，我感觉现在对我的用处就是编辑器的智能提示
+
+- 在项目中使用 ui 组件是很正常的操作,比如使用 Element-uI 的 meesage，用法如下图：
+
+```
+  this.$message({
+    message: '恭喜你，这是一条成功消息',
+    type: 'success'
+  })
+```
+
+但是在配置了 typescript 之后
+
+```
+Protopype "$message" does not exist on type "App"
+```
+
+那是因为 $message 属性，并没有在 vue 实例中声明
+
+解决办法也非常简单，那我们就声明一下
+
+在之前文章中创建的 src/vue-shim.d.ts 文件中，增加如下代码：
+
+```
+// 声明全局方法
+declare module 'vue/types/vue' {
+  interface Vue {
+    $Message: any,
+    $Modal: any
+  }
+}
+```
+
+这样，之后再使用 this.\$message()的话就不会报错了
+
+- 同理，在 main.ts 文件中引入 \$api 中，需要在 definition.d.ts 文件中进行声明
+
+```
+main.ts 文件
+
+import api from "@/api/api"
+Vue.prototype.$api = api
+```
+
+```
+definition.d.ts 文件
+
+import api from "@/api/api"
+Vue.prototype.$api = api
+
+declare module "vue/types/vue" {
+  interface Vue {
+    $api: typeof AxiosApi
+  }
+}
+```
+
+### 待整理 或者 bug issue
+- vue.config.js 中 postcss-pxtorem 提示 无法找到模块“postcss-pxtorem”的声明文件。 未解决
+- 声明文件
+

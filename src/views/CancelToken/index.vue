@@ -21,7 +21,6 @@ import { Component, Vue } from "vue-property-decorator"
 })
 export default class CancelToken extends Vue {
   card_data: Array<any> = [{ name: "快速点击测试" }]
-  $api: any // 需要 definition.d.ts 声明文件
   async getGamesList() {
     let res = await this.$api.games.getGamesList()
     console.log(res.data)

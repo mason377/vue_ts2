@@ -1,7 +1,8 @@
 import http from "./http"
+import { AxiosInstance } from "@/@types/definition"
 import * as APITYPE from "@/@types/api-type"
 import { Configs } from "@/config/config.ts"
-const service = http.service
+const service: AxiosInstance = http.service
 
 if (process.env.NODE_ENV === "production") {
   service.defaults.baseURL = Configs.PRODUCTION.API_BASE
