@@ -1,6 +1,8 @@
 <template>
   <div class="about">
     <div class="test">测试postcss</div>
+    <!-- capitalizeYear 公共方法引入之后,放在method里边，可以用同名的方法包括，但是不能直接使用 -->
+    <span>{{ capitalizeYear() }}</span>
     <!-- <loading :isShow="isShow"></loading> -->
     <!-- <span>vuex-class,store/modules/data 结合命名空间使用</span> -->
   </div>
@@ -9,6 +11,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
 import { namespace } from "vuex-class"
+import { capitalizeYear } from "@/utils/index"
 import * as APITYPE from "@/@types/api-type"
 
 const dataModule = namespace("modules")
@@ -37,11 +40,12 @@ export default class About extends Vue {
   isShow: boolean = false
 
   public created() {
-    console.log("created")
+    // console.log("created")
     // state 获取
-    console.log(this.platforms)
+    // console.log(this.platforms)
     // getter 获取
-    console.log(this.get_platforms)
+    // console.log(this.get_platforms)
+    console.log(capitalizeYear("1599815452"))
     this.isShow = true
   }
 
@@ -51,6 +55,10 @@ export default class About extends Vue {
     setTimeout(() => {
       this.isShow = false
     }, 1500)
+  }
+
+  capitalizeYear() {
+    return capitalizeYear("1599815452")
   }
 }
 </script>
